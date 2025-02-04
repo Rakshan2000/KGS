@@ -1,8 +1,8 @@
 import {React, useState} from "react";
 import '../dropdown/index.css'
 
-const STYLES = ['btn--primary', 'btn--outline'];
-const SIZES = ['btn--medium', 'btn--large'];
+const STYLES = ['btn--primary', 'btn--outline','btn--main'];
+const SIZES = ['btn--small','btn--medium', 'btn--large'];
 const DropDown = ['btn--sidenavdropdown', 'btn--mainnavdropdown'] 
 
 function dropdown({ButtonName, ContentList, buttonStyle, buttonSize, dropDownStyle}){
@@ -22,14 +22,15 @@ function dropdown({ButtonName, ContentList, buttonStyle, buttonSize, dropDownSty
               >
                 {ButtonName}
               </button>
-              {dropdownOpen && (<div className={`${checkDropDown}`}>
+              <div className={`dropdown-menu ${dropdownOpen ? 'show' : ''} ${checkDropDown}`}>
+                {dropdownOpen && (
                   <ul>
                     {
                         ContentList.map(item =><li key={item.id}>{item.Name}</li>)
                     }
                   </ul>
-                </div>)}
-                
+                )}
+              </div>
             </div>
         </>
     );

@@ -1,16 +1,13 @@
-import { useState } from 'react'
 import './App.css'
 import Navbar from './components/navbar/mainnav'
-import SideNav from './components/navbar/sidenav'
+import Home from './Pages/Home'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <div>
-        <Navbar/>
-        {/* <SideNav/> */}
+        <Home/>
       </div>
     </>
   )

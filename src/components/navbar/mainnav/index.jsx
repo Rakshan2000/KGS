@@ -36,9 +36,9 @@ function Navbar() {
 
           <div className="absolute left-0 right-0 flex items-center justify-center gap-5 md:gap-4 sm:gap-2 md:text-sm">
             <button>Home</button>
-            <Dropdown ButtonName={"Events"} ContentList={Events} buttonStyle={"btn--outline"} dropDownStyle={"btn--mainnavdropdown"} />
+            <Dropdown ButtonName={"Events"} ContentList={Events} buttonStyle={"btn--main"} dropDownStyle={"btn--mainnavdropdown"} />
             <button>Mission</button>
-            <Dropdown ButtonName={"Know More"} ContentList={KnowMoreList} buttonStyle={"btn--outline"} dropDownStyle={"btn--mainnavdropdown"} />
+            <Dropdown ButtonName={"Know More"} ContentList={KnowMoreList} buttonStyle={"btn--main"} dropDownStyle={"btn--mainnavdropdown"} />
           </div>
 
           <div className="absolute flex right-4 md:gap-15 sm:gap-2">
@@ -57,14 +57,13 @@ function Navbar() {
           </div>
         </div>
       </nav>
-      <div style={{ display: screenWidth > 768 ? "none" : null }}>
       <nav
-        className="grid grid-flow-col mt-3 items-center">
+        className=" top-0 grid grid-flow-col mt-3 items-center" style={{ display: screenWidth > 768 ? "none" : null }}>
         <div className="absolute left-5 justify-start">
           <h1 className=" text-[18px] font-bold">KGS</h1>
         </div>
         <div className="flex justify-end">
-          <Dropdown ButtonName={"ಕಕಾ/Aa"} ContentList={Language} />
+          <Dropdown ButtonName={"ಕಕಾ/Aa"} ContentList={Language} buttonStyle={"btn--outline"} dropDownStyle={"btn--mainnavdropdown"}/>
           <button>
             <FaRegUser />
           </button>
@@ -76,9 +75,8 @@ function Navbar() {
         </div>
       </nav>
       {
-        MenuActive ? <SideNav/> : null
+        MenuActive && screenWidth <= 768 ? <SideNav isOpen={true}/> : null
       }
-      </div>
     </>
   );
 }
